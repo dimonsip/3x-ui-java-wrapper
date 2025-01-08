@@ -3,10 +3,36 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+    <groupId>org.clojars.dimonsip</groupId>
+    <artifactId>3x-ui-java-wrapper</artifactId>
+    <version>1.8.1</version>
+    <packaging>jar</packaging>
+    <name>3x-UI Java Wrapper</name>
+    <description>Fork of the 3x-UI project with additional functionality for creating inbounds, generating certificates, and other features.</description>
+    <url>https://github.com/dimonsip/3x-ui-java-wrapper</url>
 
-    <groupId>org.threexui</groupId>
-    <artifactId>3x-ui-wrapper</artifactId>
-    <version>1.8.0</version>
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>https://github.com/dimonsip/3x-ui-java-wrapper/blob/master/LICENSE</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <id>dimonsip</id>
+            <name>Dmitry Sipin</name>
+            <url>https://github.com/dimonsip</url>
+        </developer>
+    </developers>
+
+    <distributionManagement>
+        <repository>
+            <id>clojars</id>
+            <url>https://clojars.org/repo</url>
+        </repository>
+    </distributionManagement>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>

@@ -1,25 +1,33 @@
 # 3x-ui-wrapper
 
-An API wrapper for [3x-ui-wrapper](https://github.com/MHSanaei/3x-ui) written in Java by @megoRU
+An for of API wrapper for [3x-ui-wrapper](https://github.com/MHSanaei/3x-ui) written in Java by @megoRU
+
+This fork simplifies the creation of inbounds and the generation of VLESS keys, along with other small improvements and fixes.
 
 ### Maven
 
-https://jitpack.io/#megoRU/3x-ui-wrapper
+https://clojars.org/org.clojars.dimonsip/3x-ui-java-wrapper
 
 ```xml
 
-<repositories>
-    <repository>
-        <id>jitpack.io</id>
-        <url>https://jitpack.io</url>
-    </repository>
-</repositories>
-
 <dependency>
-   <groupId>com.github.megoRU</groupId>
-   <artifactId>3x-ui-wrapper</artifactId>
-   <version>1.7.7</version>
+    <groupId>org.clojars.dimonsip</groupId>
+    <artifactId>3x-ui-java-wrapper</artifactId>
+    <version>1.8.1</version>
 </dependency>
+```
+
+### | `Gradle`:
+Repository:
+```groovy
+maven {
+    name = "clojars.org"
+    url = uri("https://repo.clojars.org")
+}
+```
+Depend:
+```groovy
+implementation("org.clojars.dimonsip:3x-ui-java-wrapper:1.8.1")
 ```
 ## Preparing to upgrade 1.6.1 from previous versions
 

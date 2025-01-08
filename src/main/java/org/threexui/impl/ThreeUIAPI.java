@@ -23,6 +23,14 @@ public interface ThreeUIAPI {
 
     Boolean addInbound(@NotNull Inbound inbound) throws UnsuccessfulHttpException, IOException;
 
+    Inbound generateDefaultVlessInbound(
+            String id,
+            String email,
+            Long totalBytes,
+            Integer limitIP,
+            String remark
+    ) throws UnsuccessfulHttpException, IOException;
+
     X25519Cert getNewX25519Cert() throws UnsuccessfulHttpException, IOException;
 
     /**

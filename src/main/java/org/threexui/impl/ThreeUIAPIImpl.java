@@ -13,6 +13,7 @@ import org.threexui.entity.api.X25519Cert;
 import org.threexui.entity.api.request.*;
 import org.threexui.entity.api.response.*;
 import org.threexui.entity.exceptions.UnsuccessfulHttpException;
+import org.threexui.utils.EntityUtils;
 import org.threexui.utils.JsonUtil;
 
 import java.io.IOException;
@@ -50,6 +51,18 @@ public class ThreeUIAPIImpl implements ThreeUIAPI {
     public Boolean addInbound(@NotNull Inbound inbound) throws UnsuccessfulHttpException, IOException {
         StatusResponse createInbound = parseResponse(StatusResponse.class, new InboundCreateRequest(host, inbound));
         return createInbound.isSuccess();
+    }
+
+    @Override
+    public Inbound generateDefaultVlessInbound(
+            String id,
+            String email,
+            Long totalBytes,
+            Integer limitIP,
+            String remark
+    ) throws UnsuccessfulHttpException, IOException {
+        X25519Cert x25519Cert = getNewX25519Cert();
+        return EntityUtils.createDefaultVlessInbound(id, email, totalBytes, limitIP, remark, x25519Cert);
     }
 
     @Override

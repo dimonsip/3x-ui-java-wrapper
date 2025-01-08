@@ -1,19 +1,18 @@
 package org.threexui.entity.api;
 
 import com.google.gson.Gson;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.threexui.impl.APIObject;
+import org.threexui.impl.APIRequestData;
 
 import java.util.List;
 
 @Builder
 @Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Inboard implements APIObject {
+public class Inbound implements APIObject, APIRequestData {
 
     private List<ClientTraffics> clientStats;
     private long down;

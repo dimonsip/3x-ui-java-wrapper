@@ -8,12 +8,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.threexui.entity.api.Client;
 import org.threexui.entity.api.ClientTraffics;
-import org.threexui.entity.api.Inboard;
+import org.threexui.entity.api.Inbound;
+import org.threexui.entity.api.X25519Cert;
 import org.threexui.entity.api.request.*;
-import org.threexui.entity.api.response.ClientResponse;
-import org.threexui.entity.api.response.ClientsOnlineResponse;
-import org.threexui.entity.api.response.InboardResponse;
-import org.threexui.entity.api.response.StatusResponse;
+import org.threexui.entity.api.response.*;
 import org.threexui.entity.exceptions.UnsuccessfulHttpException;
 import org.threexui.utils.JsonUtil;
 
@@ -49,6 +47,18 @@ public class ThreeUIAPIImpl implements ThreeUIAPI {
     }
 
     @Override
+    public Boolean addInbound(@NotNull Inbound inbound) throws UnsuccessfulHttpException, IOException {
+        StatusResponse createInbound = parseResponse(StatusResponse.class, new InboundCreateRequest(host, inbound));
+        return createInbound.isSuccess();
+    }
+
+    @Override
+    public X25519Cert getNewX25519Cert() throws UnsuccessfulHttpException, IOException {
+        X25519CertResponse x25519CertResponse = parseResponse(X25519CertResponse.class, new NewX25519CertRequest(host));
+        return x25519CertResponse.getObj();
+    }
+
+    @Override
     public Boolean deleteClient(int inboundId, @NotNull String email) throws UnsuccessfulHttpException, IOException {
         StatusResponse deleteClientRequest = parseResponse(StatusResponse.class, new DeleteClientRequest(host, inboundId, email));
         return deleteClientRequest.isSuccess();
@@ -72,8 +82,8 @@ public class ThreeUIAPIImpl implements ThreeUIAPI {
     }
 
     @Override
-    public List<Inboard> getInboards() throws UnsuccessfulHttpException, IOException {
-        return parseResponse(InboardResponse.class, new InboardRequest(host)).getObj();
+    public List<Inbound> getInbounds() throws UnsuccessfulHttpException, IOException {
+        return parseResponse(InboundResponse.class, new InboundRequest(host)).getObj();
     }
 
     @Override

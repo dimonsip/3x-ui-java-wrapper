@@ -1,6 +1,8 @@
 package org.threexui.utils;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonIOException;
+import com.google.gson.JsonSyntaxException;
 import org.jetbrains.annotations.NotNull;
 
 public class JsonUtil {
@@ -18,6 +20,10 @@ public class JsonUtil {
 	 * @param clazz - object class
 	 */
 	public static <T> T fromJson(@NotNull String json, @NotNull Class<T> clazz) {
-		return GSON.fromJson(json, clazz);
+		try {
+			return GSON.fromJson(json, clazz);
+		} catch (JsonSyntaxException | JsonIOException e) {
+			throw new RuntimeException("Invalid JSON structure: " + e.getMessage(), e);
+		}
 	}
 }

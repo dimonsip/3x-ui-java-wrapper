@@ -3,14 +3,17 @@ package org.threexui.entity.api;
 import com.google.gson.annotations.SerializedName;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.threexui.impl.APIRequestData;
 
 import java.util.List;
 
 @Getter
 @Setter
+@NoArgsConstructor
 @AllArgsConstructor
-public class StreamSettings {
+public class StreamSettings implements APIRequestData {
 
     private String network;
     private String security;
@@ -33,7 +36,7 @@ public class StreamSettings {
     @Getter
     @Setter
     @AllArgsConstructor
-    public static class RealitySettings {
+    public static class RealitySettings implements APIRequestData {
 
         private boolean show;
         private int xver;
@@ -50,7 +53,7 @@ public class StreamSettings {
     @Getter
     @Setter
     @AllArgsConstructor
-    public static class TcpSettings {
+    public static class TcpSettings implements APIRequestData {
 
         @SerializedName("acceptProxyProtocol")
         private boolean acceptProxyProtocol;
@@ -60,7 +63,7 @@ public class StreamSettings {
     @Getter
     @Setter
     @AllArgsConstructor
-    public static class Settings {
+    public static class Settings implements APIRequestData {
 
         private String publicKey;
         private String fingerprint;
@@ -71,7 +74,7 @@ public class StreamSettings {
     @Getter
     @Setter
     @AllArgsConstructor
-    public static class Header {
+    public static class Header implements APIRequestData {
 
         private String type;
     }

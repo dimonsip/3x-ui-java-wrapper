@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.threexui.entity.api.Inboard;
+import org.threexui.entity.api.Inbound;
 import org.threexui.impl.APIObject;
 
 import java.util.List;
@@ -12,7 +12,7 @@ import java.util.List;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class InboardResponse implements APIObject {
+public class InboundResponse implements APIObject {
 
     @SerializedName("success")
     private boolean success;
@@ -21,6 +21,6 @@ public class InboardResponse implements APIObject {
     private String message;
 
     @SerializedName("obj")
-    private List<Inboard> obj;
+    private List<Inbound> obj;
 
 }

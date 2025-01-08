@@ -4,7 +4,8 @@ import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.threexui.entity.api.Client;
 import org.threexui.entity.api.ClientTraffics;
-import org.threexui.entity.api.Inboard;
+import org.threexui.entity.api.Inbound;
+import org.threexui.entity.api.X25519Cert;
 import org.threexui.entity.exceptions.UnsuccessfulHttpException;
 
 import java.io.IOException;
@@ -18,6 +19,11 @@ public interface ThreeUIAPI {
      * @return {@link Boolean} status
      */
     Boolean addClient(@NotNull Client client) throws UnsuccessfulHttpException, IOException;
+
+
+    Boolean addInbound(@NotNull Inbound inbound) throws UnsuccessfulHttpException, IOException;
+
+    X25519Cert getNewX25519Cert() throws UnsuccessfulHttpException, IOException;
 
     /**
      * @param inboundId It`s ID from panel
@@ -46,7 +52,7 @@ public interface ThreeUIAPI {
      */
     Boolean updateClient(@NotNull Client client) throws UnsuccessfulHttpException, IOException;
 
-    List<Inboard> getInboards() throws UnsuccessfulHttpException, IOException;
+    List<Inbound> getInbounds() throws UnsuccessfulHttpException, IOException;
 
     /**
      * Setup new Session

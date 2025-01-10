@@ -62,6 +62,8 @@ public interface ThreeUIAPI {
 
     List<Inbound> getInbounds() throws UnsuccessfulHttpException, IOException;
 
+    Boolean resetInboundTraffics(long inboundId) throws UnsuccessfulHttpException, IOException;
+
     /**
      * Setup new Session
      */

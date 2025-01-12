@@ -7,6 +7,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.Setter;
 import org.jetbrains.annotations.Nullable;
 import org.json.JSONObject;
 import org.slf4j.Logger;
@@ -20,6 +21,7 @@ import org.threexui.impl.APIRequestData;
  * Use only for create {@link ClientCreateRequest}
  */
 @Getter
+@Setter
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class Client implements APIObject, APIRequestData {
 
@@ -69,6 +71,26 @@ public class Client implements APIObject, APIRequestData {
         }
         return obj.toString();
     }
+
+    public static Client fromSettings(ClientSettings settings, int inboundId, String password, String method) throws IllegalAccessException {
+        return new Builder()
+                .id(settings.getId())
+                .inboundId(inboundId)
+                .flow(settings.getFlow())
+                .email(settings.getEmail())
+                .password(password)
+                .method(method)
+                .comment(settings.getComment())
+                .limitIp(settings.getLimitIp())
+                .totalGB(settings.getTotalGB())
+                .expiryTime(settings.getExpiryTime())
+                .enable(settings.isEnable())
+                .tgId(settings.getTgId())
+                .subId(settings.getSubId())
+                .reset(settings.getReset())
+                .build();
+    }
+
 
     public static class Builder {
 

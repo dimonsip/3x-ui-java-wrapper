@@ -65,6 +65,13 @@ public class LittleTest {
         Boolean result_delete = threeUIAPI.deleteClient((int) addedInbound.getId(), randomUUIDForDelete);
         System.out.printf("Client deleted %s \n", result_delete);
 
+        ClientSettings clientSettings = addedInbound.getSettings().getClients().get(0);
+        Client client1 = Client.fromSettings(clientSettings, (int) addedInbound.getId(), null, null);
+        client1.setEnable(false);
+
+        Boolean result_update = threeUIAPI.updateClient(client1);
+        System.out.printf("Client update result %s \n", result_update);
+
         Boolean result_reset_all_traffic = threeUIAPI.resetInboundTraffics(addedInbound.getId());
         System.out.printf("All traffic reset %s \n", result_reset_all_traffic);
     }

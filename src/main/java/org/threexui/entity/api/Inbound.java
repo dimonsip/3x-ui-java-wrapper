@@ -27,6 +27,7 @@ public class Inbound implements APIObject, APIRequestData {
     private String protocol;
     private String remark;
     private String tag;
+    private String sniffing;
     private long total;
 
     public Settings getSettings() {
@@ -37,5 +38,10 @@ public class Inbound implements APIObject, APIRequestData {
     public StreamSettings getStreamSettings() {
         Gson gson = new Gson();
         return gson.fromJson(streamSettings, StreamSettings.class);
+    }
+
+    public Sniffing getSniffingSettings() {
+        Gson gson = new Gson();
+        return gson.fromJson(sniffing, Sniffing.class);
     }
 }

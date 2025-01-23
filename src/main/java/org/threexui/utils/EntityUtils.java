@@ -58,6 +58,7 @@ public class EntityUtils {
         streamSettings.getRealitySettings().setPrivateKey(x25519Cert.getPrivateKey());
         streamSettings.getRealitySettings().setShortIds(GenerateUtils.randomShortIdGenerator());
 
+        inbound.setSniffing(InboundData.defaultSniffing);
         inbound.setPort(443);
         inbound.setEnable(true);
         inbound.setProtocol("vless");

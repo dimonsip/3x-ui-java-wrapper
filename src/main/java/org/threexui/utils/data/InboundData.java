@@ -9,9 +9,9 @@ public class InboundData {
             "    \"realitySettings\": {\n" +
             "        \"show\": false,\n" +
             "        \"xver\": 0,\n" +
-            "        \"dest\": \"yahoo.com:443\",\n" +
+            "        \"dest\": \"vkvideo.ru:443\",\n" +
             "        \"serverNames\": [\n" +
-            "            \"yahoo.com\"\n" +
+            "            \"vkvideo.ru:443\"\n" +
             "        ],\n" +
             "        \"privateKey\": \"\",\n" +
             "        \"minClient\": \"\",\n" +
@@ -31,5 +31,17 @@ public class InboundData {
             "            \"type\": \"none\"\n" +
             "        }\n" +
             "    }\n" +
+            "}";
+
+    public static final String defaultSniffing = "{\n" +
+            "  \"enabled\": true,\n" +
+            "  \"destOverride\": [\n" +
+            "    \"http\",\n" +
+            "    \"tls\",\n" +
+            "    \"quic\",\n" +
+            "    \"fakedns\"\n" +
+            "  ],\n" +
+            "  \"metadataOnly\": false,\n" +
+            "  \"routeOnly\": false\n" +
             "}";
 }

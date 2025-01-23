@@ -11,7 +11,7 @@ public class InboundData {
             "        \"xver\": 0,\n" +
             "        \"dest\": \"vkvideo.ru:443\",\n" +
             "        \"serverNames\": [\n" +
-            "            \"vkvideo.ru:443\"\n" +
+            "            \"vkvideo.ru\"\n" +
             "        ],\n" +
             "        \"privateKey\": \"\",\n" +
             "        \"minClient\": \"\",\n" +

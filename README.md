@@ -1,6 +1,6 @@
 # 3x-ui-wrapper
 
-An for of API wrapper for [3x-ui-wrapper](https://github.com/MHSanaei/3x-ui) written in Java by @megoRU
+A fork of API wrapper for [3x-ui-wrapper](https://github.com/MHSanaei/3x-ui) written in Java by @megoRU
 
 This fork simplifies the creation of inbounds and the generation of VLESS keys, along with other small improvements and fixes.
 

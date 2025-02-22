@@ -43,6 +43,7 @@ public class LittleTest {
                 .inboundId((int) addedInbound.getId())
                 .email(randomUUIDTwo)
                 .flow(FlowEnum.XLTS_RPRX_VISION)
+                .limitIp(1)
                 .totalGB(totalGB)
                 .enable(true)
                 .build();
@@ -71,6 +72,9 @@ public class LittleTest {
 
         Boolean result_update = threeUIAPI.updateClient(client1);
         System.out.printf("Client update result %s \n", result_update);
+
+        Boolean result_reset_traffic = threeUIAPI.resetClientTraffics(client1.getInboundId(), client1.getId());
+        System.out.printf("Client traffic reset result %s \n", result_reset_traffic);
 
         Boolean result_reset_all_traffic = threeUIAPI.resetInboundTraffics(addedInbound.getId());
         System.out.printf("All traffic reset %s \n", result_reset_all_traffic);

@@ -106,6 +106,12 @@ public class ThreeUIAPIImpl implements ThreeUIAPI {
     }
 
     @Override
+    public Boolean resetClientTraffics(long inboundId, String clientId) throws UnsuccessfulHttpException, IOException {
+        StatusResponse resetAllTraffics = parseResponse(StatusResponse.class, new ResetClientTrafficsRequest(host, inboundId, clientId));
+        return resetAllTraffics.isSuccess();
+    }
+
+    @Override
     public void setSession() throws IOException, UnsuccessfulHttpException {
         JSONObject json = new JSONObject();
         try {

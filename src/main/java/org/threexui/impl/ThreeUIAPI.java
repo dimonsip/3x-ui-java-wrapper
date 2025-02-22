@@ -64,6 +64,8 @@ public interface ThreeUIAPI {
 
     Boolean resetInboundTraffics(long inboundId) throws UnsuccessfulHttpException, IOException;
 
+    Boolean resetClientTraffics(long inboundId, String clientId) throws UnsuccessfulHttpException, IOException;
+
     /**
      * Setup new Session
      */

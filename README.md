@@ -27,7 +27,7 @@ maven {
 ```
 Depend:
 ```groovy
-implementation("org.clojars.dimonsip:3x-ui-java-wrapper:1.8.5")
+implementation("org.clojars.dimonsip:3x-ui-java-wrapper:1.8.7")
 ```
 ## Preparing to upgrade 1.6.1 from previous versions
 

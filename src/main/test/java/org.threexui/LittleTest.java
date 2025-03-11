@@ -78,5 +78,8 @@ public class LittleTest {
 
         Boolean result_reset_all_traffic = threeUIAPI.resetInboundTraffics(addedInbound.getId());
         System.out.printf("All traffic reset %s \n", result_reset_all_traffic);
+
+        Boolean result_inbound_delete = threeUIAPI.deleteInbound(37);
+        System.out.printf("Inbound delete %s \n", result_inbound_delete);
     }
 }

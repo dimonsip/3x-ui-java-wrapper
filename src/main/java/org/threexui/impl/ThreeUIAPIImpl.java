@@ -54,6 +54,12 @@ public class ThreeUIAPIImpl implements ThreeUIAPI {
     }
 
     @Override
+    public Boolean deleteInbound(int inboundId) throws UnsuccessfulHttpException, IOException {
+        StatusResponse deleteInboundRequest = parseResponse(StatusResponse.class, new DeleteInboundRequest(host, inboundId));
+        return deleteInboundRequest.isSuccess();
+    }
+
+    @Override
     public Inbound generateDefaultVlessInbound(
             String id,
             String email,

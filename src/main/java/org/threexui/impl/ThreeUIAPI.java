@@ -23,6 +23,8 @@ public interface ThreeUIAPI {
 
     Boolean addInbound(@NotNull Inbound inbound) throws UnsuccessfulHttpException, IOException;
 
+    Boolean deleteInbound(int inboundId) throws UnsuccessfulHttpException, IOException;
+
     Inbound generateDefaultVlessInbound(
             String id,
             String email,

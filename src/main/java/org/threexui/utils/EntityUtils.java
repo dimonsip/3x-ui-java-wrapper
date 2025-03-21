@@ -16,7 +16,8 @@ public class EntityUtils {
             Long totalBytes,
             Integer limitIP,
             String remark,
-            X25519Cert x25519Cert
+            X25519Cert x25519Cert,
+            String sni
     ) {
         String randomUUID = UUID.randomUUID().toString();
         if (id == null) {
@@ -57,6 +58,10 @@ public class EntityUtils {
         streamSettings.getRealitySettings().getSettings().setPublicKey(x25519Cert.getPublicKey());
         streamSettings.getRealitySettings().setPrivateKey(x25519Cert.getPrivateKey());
         streamSettings.getRealitySettings().setShortIds(GenerateUtils.randomShortIdGenerator());
+        if (sni != null) {
+            streamSettings.getRealitySettings().setDest(sni + ":443");
+            streamSettings.getRealitySettings().setServerNames(Collections.singletonList(sni));
+        }
 
         inbound.setSniffing(InboundData.defaultSniffing);
         inbound.setPort(443);

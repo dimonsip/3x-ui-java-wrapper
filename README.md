@@ -13,7 +13,7 @@ https://clojars.org/org.clojars.dimonsip/3x-ui-java-wrapper
 <dependency>
     <groupId>org.clojars.dimonsip</groupId>
     <artifactId>3x-ui-java-wrapper</artifactId>
-    <version>1.8.5</version>
+    <version>1.8.8</version>
 </dependency>
 ```
 
@@ -27,7 +27,7 @@ maven {
 ```
 Depend:
 ```groovy
-implementation("org.clojars.dimonsip:3x-ui-java-wrapper:1.8.7")
+implementation("org.clojars.dimonsip:3x-ui-java-wrapper:1.8.8")
 ```
 ## Preparing to upgrade 1.6.1 from previous versions
 

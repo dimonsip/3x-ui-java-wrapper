@@ -31,7 +31,7 @@ public class LittleTest {
         System.out.printf("Inbound added %s \n", result_inbound_add);
 
         String vlessKey;
-        vlessKey = GenerateUtils.vlessStringGenerate(host, inbound, null);
+        vlessKey = GenerateUtils.vlessStringGenerate(host, inbound, null, "Test key");
         System.out.printf("VLESS Link for first key in inbound: \n%s \n", vlessKey);
 
         List<Inbound> inboundList = threeUIAPI.getInbounds();
@@ -50,7 +50,7 @@ public class LittleTest {
         Boolean result = threeUIAPI.addClient(client);
         System.out.printf("Client added %s \n", result);
 
-        vlessKey = GenerateUtils.vlessStringGenerate(host, addedInbound, client);
+        vlessKey = GenerateUtils.vlessStringGenerate(host, addedInbound, client, "Test key");
         System.out.printf("VLESS Link for second key in inbound: \n%s \n", vlessKey);
 
         String randomUUIDForDelete = UUID.randomUUID().toString();

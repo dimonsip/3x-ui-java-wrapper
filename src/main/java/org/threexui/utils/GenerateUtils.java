@@ -19,7 +19,7 @@ public class GenerateUtils {
         return generateRandomShortIds(count, minLength, maxLength);
     }
 
-    public static String vlessStringGenerate(String host, Inbound inbound, Client client) {
+    public static String vlessStringGenerate(String host, Inbound inbound, Client client, String comment) {
         String uuid, flow;
         if (client == null) { //if creating client with inbound with ClientSettings
             Settings settings = inbound.getSettings();
@@ -39,7 +39,9 @@ public class GenerateUtils {
         String sni = streamSettings.getSni();
         String shortId = streamSettings.getFirstSid();
         String spiderX = streamSettings.getRealitySettings().getSettings().getSpiderX();
-        String comment = inbound.getRemark();
+        if (comment == null) {
+            comment = inbound.getRemark();
+        }
 
         String encodedSpiderX = URLEncoder.encode(spiderX, StandardCharsets.UTF_8);
         String encodedComment = URLEncoder.encode(comment, StandardCharsets.UTF_8).replace("+", "%20");

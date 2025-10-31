@@ -6,6 +6,7 @@ import org.threexui.impl.APIRequestData;
 import org.threexui.utils.data.InboundData;
 
 import java.util.Collections;
+import java.util.Objects;
 import java.util.UUID;
 
 public class EntityUtils {
@@ -17,7 +18,8 @@ public class EntityUtils {
             Integer limitIP,
             String remark,
             X25519Cert x25519Cert,
-            String sni
+            String sni,
+            Long port
     ) {
         String randomUUID = UUID.randomUUID().toString();
         if (id == null) {
@@ -64,7 +66,7 @@ public class EntityUtils {
         }
 
         inbound.setSniffing(InboundData.defaultSniffing);
-        inbound.setPort(443);
+        inbound.setPort(Objects.requireNonNullElse(port, 443L));
         inbound.setEnable(true);
         inbound.setProtocol("vless");
         inbound.setRemark(remark);

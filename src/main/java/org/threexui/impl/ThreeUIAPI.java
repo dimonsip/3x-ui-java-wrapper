@@ -31,7 +31,8 @@ public interface ThreeUIAPI {
             Long totalBytes,
             Integer limitIP,
             String remark,
-            String sni
+            String sni,
+            Long port
     ) throws UnsuccessfulHttpException, IOException;
 
     X25519Cert getNewX25519Cert() throws UnsuccessfulHttpException, IOException;

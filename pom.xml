@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.clojars.dimonsip</groupId>
     <artifactId>3x-ui-java-wrapper</artifactId>
-    <version>1.8.9</version>
+    <version>1.9.0</version>
     <packaging>jar</packaging>
     <name>3x-UI Java Wrapper</name>
     <description>Fork of the 3x-UI project with additional functionality for creating inbounds, generating certificates, and other features.</description>

@@ -24,7 +24,7 @@ public class LittleTest {
         long totalGB = 200L * 1024 * 1024 * 1024;
 
         Inbound inbound = threeUIAPI.generateDefaultVlessInbound(
-                randomUUID, randomUUID, totalGB, 0, "ShadowLine VPN", "wx.qq.com"
+                randomUUID, randomUUID, totalGB, 0, "ShadowLine VPN", "wx.qq.com", 443L
         );
 
         Boolean result_inbound_add = threeUIAPI.addInbound(inbound);

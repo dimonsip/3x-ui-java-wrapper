@@ -8,6 +8,7 @@ import lombok.Setter;
 import org.threexui.impl.APIRequestData;
 
 import java.util.List;
+import java.util.Map;
 
 @Getter
 @Setter
@@ -20,6 +21,11 @@ public class StreamSettings implements APIRequestData {
     private List<String> externalProxy;
     private RealitySettings realitySettings;
     private TcpSettings tcpSettings;
+    private GrpcSettings grpcSettings;
+    private KcpSettings kcpSettings;
+    private WsSettings wsSettings;
+    private HttpUpgradeSettings httpUpgradeSettings;
+    private XhttpSettings xhttpSettings;
 
     public String getFirstSid() {
         return getRealitySettings().getShortIds().get(0);
@@ -62,6 +68,71 @@ public class StreamSettings implements APIRequestData {
 
     @Getter
     @Setter
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class GrpcSettings implements APIRequestData {
+        private String serviceName;
+        private String authority;
+        private boolean multiMode;
+    }
+
+    @Getter
+    @Setter
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class KcpSettings implements APIRequestData {
+        private int mtu = 1350;
+        private int tti = 50;
+        private int uplinkCapacity = 5;
+        private int downlinkCapacity = 20;
+        private boolean congestion = false;
+        private int readBufferSize = 2;
+        private int writeBufferSize = 2;
+        private Header header;
+
+        public KcpSettings(Header header) {
+            this.header = header;
+        }
+    }
+
+    @Getter
+    @Setter
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class WsSettings implements APIRequestData {
+        private String path;
+        private Map<String, String> headers;
+    }
+
+    @Getter
+    @Setter
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class HttpUpgradeSettings implements APIRequestData {
+        private String path;
+        private String host;
+    }
+
+    @Getter
+    @Setter
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class XhttpSettings implements APIRequestData {
+        private String path = "/";
+        private String mode = "auto";
+        private String host = "";
+    }
+
+    @Getter
+    @Setter
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class Header implements APIRequestData {
+        private String type;
+    }
+
+    @Getter
+    @Setter
     @AllArgsConstructor
     public static class Settings implements APIRequestData {
 
@@ -69,13 +140,5 @@ public class StreamSettings implements APIRequestData {
         private String fingerprint;
         private String serverName;
         private String spiderX;
-    }
-
-    @Getter
-    @Setter
-    @AllArgsConstructor
-    public static class Header implements APIRequestData {
-
-        private String type;
     }
 }

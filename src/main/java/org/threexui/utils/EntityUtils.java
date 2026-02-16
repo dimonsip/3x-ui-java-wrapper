@@ -2,7 +2,7 @@ package org.threexui.utils;
 
 import org.threexui.entity.api.*;
 import org.threexui.entity.enums.FlowEnum;
-import org.threexui.impl.APIRequestData;
+import org.threexui.entity.enums.StreamNetwork;
 import org.threexui.utils.data.InboundData;
 
 import java.util.Collections;
@@ -19,7 +19,8 @@ public class EntityUtils {
             String remark,
             X25519Cert x25519Cert,
             String sni,
-            Long port
+            Long port,
+            StreamNetwork streamNetwork
     ) {
         String randomUUID = UUID.randomUUID().toString();
         if (id == null) {
@@ -40,6 +41,9 @@ public class EntityUtils {
         if (x25519Cert == null) {
             throw new IllegalArgumentException("Generate and fill X25519Cert");
         }
+        if (streamNetwork == null) {
+            streamNetwork = StreamNetwork.TCP;
+        }
 
         Inbound inbound = new Inbound();
         Settings settings = new Settings();
@@ -47,7 +51,9 @@ public class EntityUtils {
         ClientSettings clientSettings = new ClientSettings();
         clientSettings.setId(id);
         clientSettings.setEmail(email);
-        clientSettings.setFlow(FlowEnum.XLTS_RPRX_VISION.getValue());
+        if (streamNetwork.equals(StreamNetwork.TCP)) {
+            clientSettings.setFlow(FlowEnum.XLTS_RPRX_VISION.getValue());
+        }
         clientSettings.setEnable(true);
         clientSettings.setTotalGB(totalBytes);
         clientSettings.setLimitIp(limitIP);
@@ -56,7 +62,7 @@ public class EntityUtils {
         settings.setDecryption("none");
         settings.setFallbacks(new String[0]);
 
-        StreamSettings streamSettings = APIRequestData.fromJson(InboundData.defaultStreamSettings, StreamSettings.class);
+        StreamSettings streamSettings = StreamSettingsFactory.createStreamSettings(streamNetwork);
         streamSettings.getRealitySettings().getSettings().setPublicKey(x25519Cert.getPublicKey());
         streamSettings.getRealitySettings().setPrivateKey(x25519Cert.getPrivateKey());
         streamSettings.getRealitySettings().setShortIds(GenerateUtils.randomShortIdGenerator());

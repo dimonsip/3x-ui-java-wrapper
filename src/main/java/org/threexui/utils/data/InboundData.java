@@ -20,7 +20,7 @@ public class InboundData {
             "        \"shortIds\": [],\n" +
             "        \"settings\": {\n" +
             "            \"publicKey\": \"\",\n" +
-            "            \"fingerprint\": \"chrome\",\n" +
+            "            \"fingerprint\": \"ios\",\n" +
             "            \"serverName\": \"\",\n" +
             "            \"spiderX\": \"/\"\n" +
             "        }\n" +

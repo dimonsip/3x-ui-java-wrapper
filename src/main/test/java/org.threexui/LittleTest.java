@@ -2,7 +2,6 @@ package org.threexui;
 
 import org.threexui.entity.api.*;
 import org.threexui.entity.enums.FlowEnum;
-import org.threexui.entity.enums.StreamNetwork;
 import org.threexui.entity.exceptions.UnsuccessfulHttpException;
 import org.threexui.impl.ThreeUIAPI;
 import org.threexui.utils.GenerateUtils;
@@ -25,7 +24,7 @@ public class LittleTest {
         long totalGB = 200L * 1024 * 1024 * 1024;
 
         Inbound inbound = threeUIAPI.generateDefaultVlessInbound(
-                randomUUID, randomUUID, totalGB, 0, "ShadowLine VPN", "wx.qq.com", 443L, StreamNetwork.TCP
+                randomUUID, randomUUID, totalGB, 0, "ShadowLine VPN", "wx.qq.com", 443L
         );
 
         Boolean result_inbound_add = threeUIAPI.addInbound(inbound);

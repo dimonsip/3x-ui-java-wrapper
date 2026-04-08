@@ -6,7 +6,6 @@ import org.threexui.entity.api.Client;
 import org.threexui.entity.api.ClientTraffics;
 import org.threexui.entity.api.Inbound;
 import org.threexui.entity.api.X25519Cert;
-import org.threexui.entity.enums.StreamNetwork;
 import org.threexui.entity.exceptions.UnsuccessfulHttpException;
 
 import java.io.IOException;
@@ -33,8 +32,7 @@ public interface ThreeUIAPI {
             Integer limitIP,
             String remark,
             String sni,
-            Long port,
-            StreamNetwork streamNetwork
+            Long port
     ) throws UnsuccessfulHttpException, IOException;
 
     X25519Cert getNewX25519Cert() throws UnsuccessfulHttpException, IOException;

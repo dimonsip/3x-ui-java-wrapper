@@ -2,10 +2,8 @@ package org.threexui.impl;
 
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
-import org.threexui.entity.api.Client;
-import org.threexui.entity.api.ClientTraffics;
-import org.threexui.entity.api.Inbound;
-import org.threexui.entity.api.X25519Cert;
+import org.threexui.entity.api.*;
+import org.threexui.entity.enums.StreamNetwork;
 import org.threexui.entity.exceptions.UnsuccessfulHttpException;
 
 import java.io.IOException;
@@ -35,7 +33,30 @@ public interface ThreeUIAPI {
             Long port
     ) throws UnsuccessfulHttpException, IOException;
 
+    Inbound generateDefaultHysteriaInbound(
+            String email,
+            String subId,
+            Long totalBytes,
+            Integer limitIP,
+            String remark,
+            String domain,
+            String certPath,
+            String keyPath,
+            Long port
+    ) throws UnsuccessfulHttpException, IOException;
+
+    HysteriaClientSettings createHysteriaClient(
+            String auth,
+            String subId,
+            String email,
+            Long totalBytes,
+            Integer limitIP,
+            Long expiryTime
+    );
+
     X25519Cert getNewX25519Cert() throws UnsuccessfulHttpException, IOException;
+
+    EchCert getNewEchCert() throws UnsuccessfulHttpException, IOException;
 
     /**
      * @param inboundId It`s ID from panel

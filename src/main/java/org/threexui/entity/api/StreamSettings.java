@@ -1,10 +1,7 @@
 package org.threexui.entity.api;
 
 import com.google.gson.annotations.SerializedName;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.threexui.impl.APIRequestData;
 
 import java.util.List;
@@ -78,4 +75,42 @@ public class StreamSettings implements APIRequestData {
 
         private String type;
     }
+
+    @Getter
+    @Setter
+    @AllArgsConstructor
+    public static class HysteriaSettings {
+        private int version;
+        private String auth;
+        private int udpIdleTimeout;
+    }
+
+    @Data
+    @AllArgsConstructor
+    @NoArgsConstructor
+    public static class Certificate {
+        private String certificateFile;
+        private String keyFile;
+    }
+
+    @Data
+    @AllArgsConstructor
+    @NoArgsConstructor
+    public static class TlsSettings {
+        private String serverName;
+        private List<Certificate> certificates;
+        private List<String> alpn;
+        private String echServerKeys;
+        @SerializedName("settings")
+        private TlsConfigSettings settings;
+    }
+
+    @Getter
+    @Setter
+    @AllArgsConstructor
+    public static class TlsConfigSettings implements APIRequestData {
+        private String fingerprint;
+        private String echConfigList;
+    }
+
 }

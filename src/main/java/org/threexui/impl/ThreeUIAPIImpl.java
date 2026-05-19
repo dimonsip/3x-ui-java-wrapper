@@ -6,10 +6,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.threexui.entity.api.Client;
-import org.threexui.entity.api.ClientTraffics;
-import org.threexui.entity.api.Inbound;
-import org.threexui.entity.api.X25519Cert;
+import org.threexui.entity.api.*;
 import org.threexui.entity.api.request.*;
 import org.threexui.entity.api.response.*;
 import org.threexui.entity.exceptions.UnsuccessfulHttpException;
@@ -74,9 +71,43 @@ public class ThreeUIAPIImpl implements ThreeUIAPI {
     }
 
     @Override
+    public Inbound generateDefaultHysteriaInbound(
+            String email,
+            String subId,
+            Long totalBytes,
+            Integer limitIP,
+            String remark,
+            String domain,
+            String certPath,
+            String keyPath,
+            Long port
+    ) throws UnsuccessfulHttpException, IOException {
+        EchCert echCert = getNewEchCert();
+        return EntityUtils.createDefaultHysteriaInbound(email, subId, totalBytes, limitIP, remark, echCert, domain, certPath, keyPath, port);
+    }
+
+    @Override
+    public HysteriaClientSettings createHysteriaClient(
+            String auth,
+            String email,
+            String subId,
+            Long totalBytes,
+            Integer limitIP,
+            Long expiryTime
+    ) {
+        return EntityUtils.createHysteriaClient(auth, email, subId, totalBytes, limitIP, expiryTime);
+    }
+
+    @Override
     public X25519Cert getNewX25519Cert() throws UnsuccessfulHttpException, IOException {
         X25519CertResponse x25519CertResponse = parseResponse(X25519CertResponse.class, new NewX25519CertRequest(host));
         return x25519CertResponse.getObj();
+    }
+
+    @Override
+    public EchCert getNewEchCert() throws UnsuccessfulHttpException, IOException {
+        EchCertResponse echCertResponse = parseResponse(EchCertResponse.class, new NewEchCertRequest(host));
+        return echCertResponse.getObj();
     }
 
     @Override

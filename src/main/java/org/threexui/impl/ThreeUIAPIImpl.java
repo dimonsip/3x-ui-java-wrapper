@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.threexui.entity.api.*;
 import org.threexui.entity.api.request.*;
 import org.threexui.entity.api.response.*;
+import org.threexui.entity.enums.StreamNetwork;
 import org.threexui.entity.exceptions.UnsuccessfulHttpException;
 import org.threexui.utils.EntityUtils;
 import org.threexui.utils.JsonUtil;
@@ -64,10 +65,11 @@ public class ThreeUIAPIImpl implements ThreeUIAPI {
             Integer limitIP,
             String remark,
             String sni,
-            Long port
+            Long port,
+            StreamNetwork streamNetwork
     ) throws UnsuccessfulHttpException, IOException {
         X25519Cert x25519Cert = getNewX25519Cert();
-        return EntityUtils.createDefaultVlessInbound(id, email, totalBytes, limitIP, remark, x25519Cert, sni, port);
+        return EntityUtils.createDefaultVlessInbound(id, email, totalBytes, limitIP, remark, x25519Cert, sni, port, streamNetwork);
     }
 
     @Override

@@ -30,7 +30,8 @@ public interface ThreeUIAPI {
             Integer limitIP,
             String remark,
             String sni,
-            Long port
+            Long port,
+            StreamNetwork streamNetwork
     ) throws UnsuccessfulHttpException, IOException;
 
     Inbound generateDefaultHysteriaInbound(

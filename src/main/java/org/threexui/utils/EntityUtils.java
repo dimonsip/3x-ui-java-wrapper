@@ -73,7 +73,7 @@ public class EntityUtils {
         return client;
     }
 
-    public static HysteriaClientSettings createHysteriaClient(
+    public static HysteriaClient createHysteriaClient(
             String auth,
             String email,
             String subId,
@@ -105,8 +105,8 @@ public class EntityUtils {
         if (limitIP == null) {
             limitIP = 0;
         }
-        HysteriaClientSettings client =
-                new HysteriaClientSettings();
+        HysteriaClient client =
+                new HysteriaClient();
         client.setId(UUID.randomUUID().toString());
         client.setAuth(auth);
         client.setComment("");
@@ -182,7 +182,7 @@ public class EntityUtils {
         if (keyPath == null) {
             keyPath = "/root/cert/" + domain + "/privkey.pem";
         }
-        HysteriaClientSettings client = createHysteriaClient(auth, email, subId, totalBytes, limitIP, 0L);
+        HysteriaClient client = createHysteriaClient(auth, email, subId, totalBytes, limitIP, 0L);
         HysteriaSettings settings = new HysteriaSettings();
         settings.setClients(Collections.singletonList(client));
         settings.setVersion(2);

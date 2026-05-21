@@ -1,6 +1,5 @@
 package org.threexui.impl;
 
-import okhttp3.*;
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -90,7 +89,7 @@ public class ThreeUIAPIImpl implements ThreeUIAPI {
     }
 
     @Override
-    public HysteriaClientSettings createHysteriaClient(
+    public HysteriaClient createHysteriaClient(
             String auth,
             String email,
             String subId,
@@ -137,7 +136,7 @@ public class ThreeUIAPIImpl implements ThreeUIAPI {
     }
 
     @Override
-    public Boolean updateHysteriaClient(@NotNull HysteriaClientSettings hysteriaClient) throws UnsuccessfulHttpException, IOException {
+    public Boolean updateHysteriaClient(@NotNull HysteriaClient hysteriaClient) throws UnsuccessfulHttpException, IOException {
         hysteriaClient.setId(hysteriaClient.getAuth());
         return updateClient(hysteriaClient);
     }

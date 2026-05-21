@@ -47,7 +47,7 @@ public interface ThreeUIAPI {
             Long port
     ) throws UnsuccessfulHttpException, IOException;
 
-    HysteriaClientSettings createHysteriaClient(
+    HysteriaClient createHysteriaClient(
             String auth,
             String subId,
             String email,
@@ -87,7 +87,7 @@ public interface ThreeUIAPI {
      */
     Boolean updateClient(@NotNull Client client) throws UnsuccessfulHttpException, IOException;
 
-    Boolean updateHysteriaClient(@NotNull HysteriaClientSettings hysteriaClient) throws UnsuccessfulHttpException, IOException;
+    Boolean updateHysteriaClient(@NotNull HysteriaClient hysteriaClient) throws UnsuccessfulHttpException, IOException;
 
     List<Inbound> getInbounds() throws UnsuccessfulHttpException, IOException;
 

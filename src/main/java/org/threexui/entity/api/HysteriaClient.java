@@ -9,7 +9,7 @@ import org.threexui.impl.APIRequestData;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class HysteriaClientSettings extends Client implements APIObject, APIRequestData {
+public class HysteriaClient extends Client implements APIObject, APIRequestData {
 
     private String auth;
     private Long created_at;

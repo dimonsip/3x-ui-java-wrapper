@@ -11,7 +11,7 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class HysteriaSettings implements APIObject, APIRequestData {
-    private List<HysteriaClientSettings> clients;
+public class HysteriaSettings extends ClientSettings implements APIObject, APIRequestData {
+    private List<HysteriaClient> clients;
     private Integer version;
 }

@@ -161,6 +161,7 @@ public class EntityUtils {
     }
 
     public static Inbound createDefaultHysteriaInbound(
+            String auth,
             String email,
             String subId,
             Long totalBytes,
@@ -181,7 +182,7 @@ public class EntityUtils {
         if (keyPath == null) {
             keyPath = "/root/cert/" + domain + "/privkey.pem";
         }
-        HysteriaClientSettings client = createHysteriaClient(null, email, subId, totalBytes, limitIP, 0L);
+        HysteriaClientSettings client = createHysteriaClient(auth, email, subId, totalBytes, limitIP, 0L);
         HysteriaSettings settings = new HysteriaSettings();
         settings.setClients(Collections.singletonList(client));
         settings.setVersion(2);

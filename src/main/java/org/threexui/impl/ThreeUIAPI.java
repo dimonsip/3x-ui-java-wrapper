@@ -35,6 +35,7 @@ public interface ThreeUIAPI {
     ) throws UnsuccessfulHttpException, IOException;
 
     Inbound generateDefaultHysteriaInbound(
+            String auth,
             String email,
             String subId,
             Long totalBytes,
@@ -85,6 +86,8 @@ public interface ThreeUIAPI {
      * It's best to use this to turn on and off. You can also change the limits.
      */
     Boolean updateClient(@NotNull Client client) throws UnsuccessfulHttpException, IOException;
+
+    Boolean updateHysteriaClient(@NotNull HysteriaClientSettings hysteriaClient) throws UnsuccessfulHttpException, IOException;
 
     List<Inbound> getInbounds() throws UnsuccessfulHttpException, IOException;
 

@@ -74,6 +74,7 @@ public class ThreeUIAPIImpl implements ThreeUIAPI {
 
     @Override
     public Inbound generateDefaultHysteriaInbound(
+            String auth,
             String email,
             String subId,
             Long totalBytes,
@@ -85,7 +86,7 @@ public class ThreeUIAPIImpl implements ThreeUIAPI {
             Long port
     ) throws UnsuccessfulHttpException, IOException {
         EchCert echCert = getNewEchCert();
-        return EntityUtils.createDefaultHysteriaInbound(email, subId, totalBytes, limitIP, remark, echCert, domain, certPath, keyPath, port);
+        return EntityUtils.createDefaultHysteriaInbound(auth, email, subId, totalBytes, limitIP, remark, echCert, domain, certPath, keyPath, port);
     }
 
     @Override
@@ -133,6 +134,12 @@ public class ThreeUIAPIImpl implements ThreeUIAPI {
     public Boolean updateClient(@NotNull Client client) throws UnsuccessfulHttpException, IOException {
         StatusResponse updateClient = parseResponse(StatusResponse.class, new ClientUpdateRequest(host, client));
         return updateClient.isSuccess();
+    }
+
+    @Override
+    public Boolean updateHysteriaClient(@NotNull HysteriaClientSettings hysteriaClient) throws UnsuccessfulHttpException, IOException {
+        hysteriaClient.setId(hysteriaClient.getAuth());
+        return updateClient(hysteriaClient);
     }
 
     @Override

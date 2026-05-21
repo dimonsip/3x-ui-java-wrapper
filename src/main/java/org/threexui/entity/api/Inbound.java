@@ -35,6 +35,11 @@ public class Inbound implements APIObject, APIRequestData {
         return gson.fromJson(settings, Settings.class);
     }
 
+    public HysteriaSettings getHysteriaSettings() {
+        Gson gson = new Gson();
+        return gson.fromJson(settings, HysteriaSettings.class);
+    }
+
     public StreamSettings getStreamSettings() {
         Gson gson = new Gson();
         return gson.fromJson(streamSettings, StreamSettings.class);

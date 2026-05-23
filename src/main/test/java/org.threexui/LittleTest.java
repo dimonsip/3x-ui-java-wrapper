@@ -22,10 +22,11 @@ public class LittleTest {
                 .build();
 
         String randomUUID = UUID.randomUUID().toString();
+        String randomUUID2 = UUID.randomUUID().toString();
         long totalGB = 200L * 1024 * 1024 * 1024;
 
         Inbound inbound = threeUIAPI.generateDefaultVlessInbound(
-                randomUUID, randomUUID, totalGB, 0, "ShadowLine VPN", "wx.qq.com", 443L, StreamNetwork.TCP
+                randomUUID, randomUUID, randomUUID2, totalGB, 0, "ShadowLine VPN", "wx.qq.com", 443L, StreamNetwork.TCP
         );
 
         Boolean result_inbound_add = threeUIAPI.addInbound(inbound);

@@ -26,6 +26,7 @@ public interface ThreeUIAPI {
     Inbound generateDefaultVlessInbound(
             String id,
             String email,
+            String subId,
             Long totalBytes,
             Integer limitIP,
             String remark,

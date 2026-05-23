@@ -55,6 +55,7 @@ public class EntityUtils {
     private static ClientSettings createVlessClient(
             String id,
             String email,
+            String subId,
             Long totalBytes,
             Integer limitIP,
             StreamNetwork streamNetwork
@@ -65,7 +66,7 @@ public class EntityUtils {
         ClientSettings client =
                 createBaseClient(email, totalBytes, limitIP);
         client.setId(id);
-        client.setSubId(UUID.randomUUID().toString());
+        client.setSubId(subId);
         if (streamNetwork == StreamNetwork.TCP) {
             client.setFlow(
                     FlowEnum.XLTS_RPRX_VISION.getValue()
@@ -128,6 +129,7 @@ public class EntityUtils {
     public static Inbound createDefaultVlessInbound(
             String id,
             String email,
+            String subId,
             Long totalBytes,
             Integer limitIP,
             String remark,

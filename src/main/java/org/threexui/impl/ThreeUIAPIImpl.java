@@ -61,6 +61,7 @@ public class ThreeUIAPIImpl implements ThreeUIAPI {
     public Inbound generateDefaultVlessInbound(
             String id,
             String email,
+            String subId,
             Long totalBytes,
             Integer limitIP,
             String remark,
@@ -69,7 +70,7 @@ public class ThreeUIAPIImpl implements ThreeUIAPI {
             StreamNetwork streamNetwork
     ) throws UnsuccessfulHttpException, IOException {
         X25519Cert x25519Cert = getNewX25519Cert();
-        return EntityUtils.createDefaultVlessInbound(id, email, totalBytes, limitIP, remark, x25519Cert, sni, port, streamNetwork);
+        return EntityUtils.createDefaultVlessInbound(id, email, subId, totalBytes, limitIP, remark, x25519Cert, sni, port, streamNetwork);
     }
 
     @Override

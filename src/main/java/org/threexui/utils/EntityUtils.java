@@ -147,7 +147,7 @@ public class EntityUtils {
         if (streamNetwork == null) {
             streamNetwork = StreamNetwork.TCP;
         }
-        ClientSettings client = createVlessClient(id, email, totalBytes, limitIP, streamNetwork);
+        ClientSettings client = createVlessClient(id, email, subId, totalBytes, limitIP, streamNetwork);
         Settings settings = new Settings();
         settings.setClients(Collections.singletonList(client));
         settings.setDecryption("none");

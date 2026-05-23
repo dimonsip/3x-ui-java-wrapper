@@ -65,6 +65,7 @@ public class EntityUtils {
         ClientSettings client =
                 createBaseClient(email, totalBytes, limitIP);
         client.setId(id);
+        client.setSubId(UUID.randomUUID().toString());
         if (streamNetwork == StreamNetwork.TCP) {
             client.setFlow(
                     FlowEnum.XLTS_RPRX_VISION.getValue()

@@ -15,7 +15,7 @@ public class StreamSettings implements APIRequestData {
 
     private String network;
     private String security;
-    private List<String> externalProxy;
+    private List<ExternalProxySettings> externalProxy;
     private RealitySettings realitySettings;
     private TcpSettings tcpSettings;
     private GrpcSettings grpcSettings;
